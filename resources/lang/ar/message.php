@@ -1,6 +1,7 @@
 <?php 
 return
     [
+        'ADD RESUME' =>'أضف السيرة الذاتية',
      'dashboard' =>'لوحة التحكم',
      'name' => 'الإسم',
      'online'=> 'مفعل',
@@ -14,7 +15,8 @@ return
      'active'=>'مفعل',
      'inactive'=>'غير مفعل',
      'vision' => 'رؤية',
-     'icon'=> 'Icon',
+      "show Album"=>'يرجي الضغط علي الصورة لمشاهدة الألبوم',
+     'icon'=> 'الأيقونة',
      'featurimage' =>'الصورة الرئيسية',
      'gallery' => 'الألبوم',
      'description'=>'الوصف',
@@ -22,6 +24,9 @@ return
      'mobile'=> 'الجوال',
      'ُemail' =>'البريد الإلكتروني',
      'author' => 'المؤلف',
+     'experience' => 'سنوات الخبرة',
+     'location' => 'الدولة',
+     'client-name' => 'العميل-الشركة',
      'title'=>'عنوان',
      'client' => 'عميل',
      'clients' => 'العملاء',
@@ -36,7 +41,7 @@ return
      'job' => 'وظيفة',
      'jobs' => 'وظائف',
      'service'=> 'خدمة',
-     'services'=> 'خدمات',
+     'services'=> 'الخدمات',
      'settings' => 'الاعدادات',
      'social'=>'التواصل',
      'thanks' => 'شكر وتقدير',
@@ -49,9 +54,106 @@ return
      'setting'=>'إعداد',
      'icon'=>'الصورة',
      'email'=>'البريد الإلكتروني',
+     'password'=>'كلمة السر',
+     'login'=>'تسجيل الدخول',
      'map'=>'الخريطة',
      'requirment'=>'المتطلبات',
      'language'=>'اختر اللغة',
-     'logedin'=>'لقد أتممت الدخول بنجاح'
+     'logedin'=>'لقد أتممت الدخول بنجاح',
+    
+     'locations'=>'المواقع',
+     'messages'=>'الرسائل',
+     'experiences'=>'الخبرات',
+        'titles'=>'أسماء الوظائف',
+        'departments'=>'الأقسام',
+        'hierarchyDetails'=>'تفاصيل التسلسل الوظيفي',
+        'officers'=>'طلبات التوظيف',
+        'skills'=>'المهارات',
+
+        'location'=>'الموقع',
+        'message'=>'الرسائل',
+        'experience'=>'الخبرة',
+           'title'=>'اسم الوظيفة',
+           'department'=>'القسم',
+           'hierarchyDetail'=>'تفاصيل التسلسل الوظيفي',
+           'officer'=>'طلب التوظيف',
+           'skill'=>'مهارة',
+
+           'address'=>'العنوان',
+           'phone'=>'الهاتف',
+           'email'=>'البريد الإلكنروني',
+           'university'=>'الجامعة',
+           'city'=>'المدينة',
+           'gpa'=>'gpa',
+           'communication'=>'الاتصالات',
+           'leader'=>'القيادة',
+           'cv'=>'cv',
+
+           'job title'=>'اسم الوظيفة',
+           'company'=>'الشركة',
+           'position'=>'الموقع الوظيفة',
+           
+           'subject'=>'موضوع',
+
+
+
+
+
+
+    /////----------------------front translation-------------------------
+
+           
+      'Browse Jobs Around You'=>'تصفح الوظائف من حولك',
+      'Find Jobs, Employment & Career Opportunities'=>'جد وظائف, تعيينات & فرص توظيفية',
+      'Search'=>'إبحث',
+      'years'=>'سنة',
+      'Tranding' =>'الوظائف االشائعة',
+      'Top Hiring Companies' =>'الأكثر توظيفا',
+      'Get Best Matched Jobs On your Email. Add Resume NOW!'=>'جد أفضل الوظائف علي إيميلك الشخصي',
+      'Openning' =>'مفتوح',
+      'TOP RECRUITERS' =>'كبار الشركاء',
+      'JOBCLUS SITE STATS' =>'إحصائيات موقع فادن',
+      'Companies' =>'الشركات',
+      'Active Jobs' =>'الوظائف المتاحة',
+      'Employers' =>'الموظفون',
+      'Job Seekers' =>'الساعون للتوظيف',
+      'SUBMIT' =>'أرسل',
+      
+      'Faden for Human Resources and management solutions . All Rights Reserved.'=>'  جميع الحقوق محفوظة .فادن للموارد البشرية والحلول الإدارية.',
+      'home' =>'الرئيسية',
+      'faden' =>'فادن',
+      'Our Awareness and Our Commitment to your business is our every day’s Focus to prove it.'=>'إن وعينا والتزامنا تجاه عملك هو تركيزنا اليومي لإثبات ذلك.',
+      'more'=>'المزيد',
+      'Other Pages'=>'صفحات أخري',
+      
+      'Our Pages'=>'صفحات',
+      'Who We Are'=>'من نحن',
+      
+       /////----------------------front translation-------------------------
+       'Leave A Message'=>'إرسل رسالتك',
+       'CONTACT INFO'=>'بيانات الإتصال',
+       'Faden HR Branches'=>'أفرع فادن',
+       'Saudi Arbia'=>'السعودية',
+
+       'Egypt'=>'مصر',
+       'send'=>'أرسل',
+       'Type Your Message'=>'إكتب رسالتك*',
+       'Email'=>'البريد الإلكتروني',
+           'Name'=>'الإسم',
+           
+       'Home'=>'الرئيسية',
+       'Services'=>'الخدمات',
+       'Clients'=>'أعمالنا',
+       'Partners'=>'شركائنا',
+       'Search For Job'=>'البحث عن وظيفة',
+       'Search For Officer'=>'البحث عن موظف',
+       'Events'=>'الأحداث',
+       'Our Works'=>'أعمالنا',
+       'Thanks'=>'شكر وتقدير',
+       'Hierarchy'=>'التسلسل الوظيفي',
+       'Contact'=>'إتصل بنا',
+        'GET FADEN PROFIL'=>' فادن',
+        'Faden'=>'فادن',
+        'Opening' =>'مفتوح',
     ];
 ?>

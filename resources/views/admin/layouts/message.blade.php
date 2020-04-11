@@ -1,4 +1,4 @@
-<p class="alert-success">
+<h3 class="alert-success">
                         <?php
                         $message=Session::get('message');
                         if ($message)
@@ -7,4 +7,4 @@
                             Session::put('message',NULL);
                         }
                         ?>
-                    </p>
+                    </h3>

@@ -30,7 +30,7 @@ class EventController extends Controller
             'en_name' => ['required', 'string', 'max:50'],
             'ar_name' => ['required', 'string', 'max:50'],
             // 'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
         ]);
          //   dd($request);
@@ -40,7 +40,7 @@ class EventController extends Controller
             'ar' => [ 'name' => $request->input('ar_name'),],
             'online' => 1
         ];
-        $image = $request->file('image');
+        $image = $request->has('image');
 
         if ($image) {
             $request->image->store('event');
@@ -74,12 +74,10 @@ class EventController extends Controller
      */
     public function show($id)
     {
-    
-    
-        $event = Event::findOrFail($id);
-        //dd($images);
+        
+        $event = Event::findOrFail($id);   
         return view('admin.events.image',compact('event'));
-    
+
     }
 
     /**
@@ -113,7 +111,7 @@ public function update(Request $request ,$id)
             'en_name' => ['required', 'string', 'max:50'],
             'ar_name' => ['required', 'string', 'max:50'],
             // 'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          //  'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
             
         ]);
@@ -123,7 +121,7 @@ public function update(Request $request ,$id)
 	        'ar' => [ 'name' => $request->input('ar_name'),],
 	        'online' => 1
 	    ];
-    	$image = $request->file('image');
+    	$image = $request->has('image');
 
 	    if ($image) {
 	        @unlink(storage_path('app/event/'.$event->image));
@@ -133,14 +131,14 @@ public function update(Request $request ,$id)
 
 	    if($event->update($event_data)){
 	        
-	        $images = $request->file('images');
+	        $img = $request->has('images');
 	    	
-	    	if($images){
+	    	if($img){
 		        foreach($event->eventDetails as $image){
 		        	@unlink(storage_path('app/event/'.$image->images));
 					$image->delete();
 		        }
-		    
+		    $images = $request->file('images');
 	    		for($i=0 ; $i < sizeof($images) ; $i++){
 
 		            //Create new image model
@@ -154,7 +152,7 @@ public function update(Request $request ,$id)
 		            $image->save();
 		        }	
 	    	}
-
+            Session::put('message', 'Event updated  Successfully !!');
 	    	return Redirect::to('admin/event'); 
 	    }
 	}

@@ -16,6 +16,7 @@
         
         </div>
     </div>
+    
     <div class="card-body" id="arabic-form">
         <div class="form-group">
         <label class="required" for="ar_name">{{ trans('message.name') }} (Ar)</label>
@@ -28,7 +29,9 @@
         
      </div>
     </div>
+    
 
+    <div class="card-body" id="arabic-form">
     <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title">{{ trans('message.description') }} (En)</h3>
@@ -50,7 +53,9 @@
             </div>
         
     </div>
+    </div>
 
+    <div class="card-body" id="arabic-form">
     <div class="box box-info">
             <div class="box-header">
               <h3 class="box-title">{{ trans('message.description') }} (Ar)</h3>
@@ -68,26 +73,44 @@
               
                     <textarea   class="form-control {{ $errors->has('ar_description') ? 'is-invalid' : '' }}" id="ar_description"
                          name="ar_description" rows="6" cols="80" value="{{ old('ar_description', '') }}" required></textarea>
-              
+                         @if($errors->has('ar_description'))
+                         <div class="invalid-feedback">
+                             {{ $errors->first('ar_description') }}
+                         </div>
+                     @endif
             </div>
         
     </div>
+    </div>
 
-
+    <div class="card-body" id="arabic-form">
     <div class="form-group">
         <label class="required" for="logo">{{ trans('message.image') }}</label>
-        <input  type="file" class="form-control"  name="image"  required>
+        <input  type="file" class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}"  name="image" accept="image/*" required>
+        @if($errors->has('logo'))
+        <div class="invalid-feedback">
+            {{ $errors->first('logo') }}
+        </div>
+    @endif
         
     </div>
-   
-    <div class="form-group">
-    <p>{{ trans('message.images') }}</p>
-        <input type="file" class="form-control"  name="images[]" id="file" accept="image/*" multiple />
     </div>
+    
+    <div class="card-body" id="arabic-form">
+        <div class="form-group">
+        <p>{{ trans('message.images') }}</p>
+            <input type="file" class="form-control {{ $errors->has('images') ? 'is-invalid' : '' }}"  name="images[]" id="file" accept="image/*" multiple />
+            @if($errors->has('images'))
+            <div class="invalid-feedback">
+                {{ $errors->first('images') }}
+            </div>
+        @endif
+        </div>
 
+    </div>
         
 <button type="submit" class="btn btn-primary">submit</button> 
-</div>
+
 </form>
 
 

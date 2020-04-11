@@ -8,4 +8,6 @@ class JobTranslation extends Model
 {
     protected $fillable = ['title','description','requirment'];
     public $timestamps = false;
+
+   
 }

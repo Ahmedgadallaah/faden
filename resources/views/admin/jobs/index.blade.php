@@ -17,9 +17,12 @@
                   <th>{{ trans('message.title') }} (ar)</th>
                   <th>{{ trans('message.description') }} (en)</th>
                   <th>{{ trans('message.description') }} (ar)</th>
-                  <th>{{ trans('message.requirment') }} (en)</th>
-                  <th>{{ trans('message.requirment') }} (ar)</th>
-                  <th>{{ trans('message.author') }}</th>
+                  
+                   <th>{{ trans('message.client') }}(en)</th>
+                  <th>{{ trans('message.client') }}(ar)</th>
+                  <th>{{ trans('message.location') }}(en)</th>
+                  <th>{{ trans('message.location') }}(ar)</th>
+                  <th>{{ trans('message.experience') }}</th>
                   <th>{{ trans('message.online') }}</th>
                   <th colspan="3"></th>
                 </tr>
@@ -29,13 +32,16 @@
                 <tr>
                   <td>{{ $job->id }}</td>
                  
-                  <td>{{ $job->translate('en')->title}}</td>
-                  <td>{{ $job->translate('ar')->title}}</td>
+                  <td>{{ $job->title->translate('en')->title}}</td>
+                  <td>{{ $job->title->translate('ar')->title}}</td>
                   <td>{{ $job->translate('en')->description }}</td>
                   <td>{{ $job->translate('ar')->description }}</td>
-                  <td>{{ $job->translate('en')->requirment }}</td>
-                  <td>{{ $job->translate('ar')->requirment }}</td>
-                  <td>{{ $job->author}}</td>
+                  <td>{{ $job->client->translate('en')->name}}</td>
+                  <td>{{ $job->client->translate('ar')->name}}</td>
+                  <td>{{ $job->location->translate('en')->location}}</td> 
+                  <td>{{ $job->location->translate('ar')->location}}</td>
+                  <td>{{ $job->experience->experience}}</td>
+                  
                   <td>
                   
                   

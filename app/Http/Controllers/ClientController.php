@@ -44,7 +44,7 @@ class ClientController extends Controller
             'link' => $request->input('link'),
             'online' => 1
         ];
-        $client_data['logo'] = '';
+        
         $image = $request->file('logo');
         if ($image) {
             $request->logo->store('client');
@@ -104,9 +104,9 @@ class ClientController extends Controller
             'link' => $request->input('link'),
             'online' => 1
         ];
-        $client_data['logo'] = '';
-        $image = $request->file('logo');
-        if ($image) {
+        
+        
+        if ($request->file('logo')) {
             @unlink(storage_path('app/client/'.$client->logo));
             $request->logo->store('client');
             $imagename = $request->logo->hashName();

@@ -19,7 +19,6 @@ class CreateJobTranslationsTable extends Migration
             $table->unsignedBigInteger('job_id');
             $table->unique(['job_id', 'locale']);
             $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
-            $table->string('title');
             $table->text('requirment');
             $table->text('description');
             

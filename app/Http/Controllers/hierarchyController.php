@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use Session;
 session_start();
 
-class hierarchyController extends Controller
+class HierarchyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class hierarchyController extends Controller
 
             'ar_name' => ['required', 'string', 'max:50'],
             'en_name' => ['required', 'string', 'max:50'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
         ]);
 
@@ -43,7 +43,7 @@ class hierarchyController extends Controller
             'ar' => [ 'name' => $request->input('ar_name')],
             'online' => 1  
          ];
-        $hierarchy_data['image'] = '';
+        
         $image = $request->file('image');
         if ($image) {
             $request->image->store('hierarchy');
@@ -74,9 +74,9 @@ class hierarchyController extends Controller
             'ar' => [ 'name' => $request->input('ar_name')],
             'online' => 1
         ];
-        $hierarchy_data['image'] = '';
-        $image = $request->file('image');
-        if ($image) {
+        
+        //$image = $request->file('image');
+        if ($request->has('image')) {
             @unlink(storage_path('app/hierarchy/'.$hierarchy->image));
             $request->image->store('hierarchy');
             $imagename = $request->image->hashName();

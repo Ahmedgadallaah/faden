@@ -110,7 +110,7 @@ public function update(Request $request ,$id)
             'ar_name' => ['required', 'string', 'max:50'],
             'en_description' => ['required', 'string', 'max:191'],
             'ar_description' => ['required', 'string', 'max:191'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             
         ]);
 
@@ -119,7 +119,7 @@ public function update(Request $request ,$id)
             'ar' => [ 'name' => $request->input('ar_name'), 'description' => $request->input('ar_description'),],
 	        'online' => 1
 	    ];
-    	$image = $request->file('image');
+    	$image = $request->has('image');
 	    if ($image) {
 	        @unlink(storage_path('app/service/'.$service->image));
 	        $request->image->store('service');
@@ -128,13 +128,15 @@ public function update(Request $request ,$id)
 
 	    if($service->update($service_data)){
 	        
-	        $images = $request->file('images');
+	        $images = $request->has('images');
 	    	
 	    	if($images){
 		        foreach($service->serviceDetails as $image){
 		        	@unlink(storage_path('app/service/'.$image->images));
 					$image->delete();
 		        }
+		    
+		    $images = $request->file('images');
 		    
 	    		for($i=0 ; $i < sizeof($images) ; $i++){
 

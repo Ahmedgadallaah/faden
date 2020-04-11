@@ -24,7 +24,7 @@
                 <tr>
                   <td>{{  $image->detail_Id }}</td>
                   <td><img src="{{URL::to('./../storage/app/event/'.$image->images)}}" style="width:80px;height:80px;"></td>
-                  
+              
                 </tr>
                 @endforeach
                 </tbody>

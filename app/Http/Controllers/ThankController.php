@@ -31,16 +31,16 @@ class ThankController extends Controller
     {
 
         $this->validate($request, [
-            'en_name' => ['required', 'string', 'max:191'],
-            'ar_name' => ['required', 'string', 'max:191'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'en_name' => ['required', 'string', 'max:50'],
+            'ar_name' => ['required', 'string', 'max:50'],
+          //  'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $thank_data = [
             'en' => ['name'=> $request->input('en_name'),],
             'ar' => [ 'name' => $request->input('ar_name')],
             'online' => 1
         ];
-        $thank_data['image'] = '';
+        // $thank_data['image'] = '';
         $image = $request->file('image');
         if ($image) {
             $request->image->store('thank');
@@ -89,9 +89,9 @@ class ThankController extends Controller
        $thank= Thank::findOrFail($id);
 
        $this->validate($request, [
-        'en_name' => ['required', 'string', 'max:191'],
-        'ar_name' => ['required', 'string', 'max:191'],
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'en_name' => ['required', 'string', 'max:50'],
+        'ar_name' => ['required', 'string', 'max:50'],
+       // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
         $thank_data = [
@@ -99,8 +99,8 @@ class ThankController extends Controller
             'ar' => [ 'name' => $request->input('ar_name')],
             'online' => 1
         ];
-        $thank_data['image'] = '';
-        $image = $request->file('image');
+        // $thank_data['image'] = '';
+        $image = $request->has('image');
         if ($image) {
             @unlink(storage_path('app/thank/'.$thank->image));
             $request->image->store('thank');

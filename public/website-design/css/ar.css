@@ -1,0 +1,136 @@
+body{
+    direction: rtl;
+}
+.navbar{
+    text-align: right;
+}
+.navbar-nav{
+    border-right: none;
+    border-left: 1px solid #888;
+}
+.jp_banner_heading_cont_wrapper{
+    text-align: right;
+}
+.jp_header_form_wrapper{
+    float: right;
+}
+.jp_form_location_wrapper select, .jp_form_exper_wrapper select{
+    padding-left: 0 !important;
+    padding-right: 20px;
+}
+.jp_form_location_wrapper .second_icon, .jp_form_exper_wrapper .second_icon{
+    margin-left: 0;
+    margin-right: -30px;
+}
+.jp_add_resume_cont li a{
+    margin-left: 0;
+    float: right;
+    margin-right: -33px;
+}
+.jp_main_footer_img_wrapper, .jp_footer_logo_wrapper, .jp_footer_three_sec_main_wrapper, .jp_footer_main_wrapper{
+    float: right;
+}
+.jp_footer_main_wrapper{
+    text-align: right;
+}
+.jp_footer_first_cont h2:after, .jp_footer_candidate h2:after{
+    right: 11px;
+    left: 0;
+}
+.jp_footer_first_cont h2:before, .jp_footer_candidate h2:before{
+    right: 0;
+}
+.jp_footer_candidate ul li a{
+    float: none;
+}
+.jp_bottom_footer_right_cont ul{
+    float: left;
+}
+.owl-carousel{
+    direction: ltr !important;
+}
+jp_top_header_main_wrapper{
+    text-align: right;
+}
+.jp_top_header_left_cont p{
+    float: right;
+}
+.jp_top_header_left_cont p:last-child{
+	margin-left:0px;
+	margin-right:40px;
+}
+.jp_top_header_right__social_cont ul{
+    float: left;
+     margin-right: 0px;
+     margin-left: 45px;
+}
+.jp_top_header_right__social_cont li{
+	float:right;
+	margin-left:0px;
+	margin-right:30px;
+}
+.jp_tittle_main_wrapper{
+    text-align: right;
+}
+.jp_tittle_breadcrumb_wrapper li{
+    float: right;
+    padding-right: 5px;
+    list-style-type: none;
+}
+.jp_tittle_breadcrumb_wrapper li a{
+    padding-left: 14px;
+}
+.jp_tittle_breadcrumb_wrapper li .fa-angle-right{
+    transform: rotate(180deg);
+}
+.jp_contact_form_main_wrapper{
+    float: right;
+    text-align: right;
+}
+.jp_contact_form_heading_wrapper h2:after{
+    right: 11px;
+}
+.jp_contact_form_heading_wrapper h2:before{
+    right: 0;
+}
+.jp_contact_inputs_wrapper input, .jp_contact_inputs4_wrapper textarea{
+    padding-right: 45px;
+    padding-left: 0;
+    text-align: right;
+}
+.jp_contact_inputs_wrapper i{
+    right: 30px;
+}
+.jp_map_location_icon_wrapper{
+    float: right;
+}
+.gc_map_location_icon_cont_wrapper{
+    padding-right: 10px;
+    padding-left: 0;
+}
+.jp_contact_form_add_heading_wrapper h2:before{
+    right: 0;
+}
+.jp_contact_form_add_heading_wrapper h2:after{
+    right: 11px;
+}
+.service .jp_contact_form_heading_wrapper h2, .service-banner .jp_contact_form_heading_wrapper h2{
+    text-align: right;
+}
+.jp_contact_form_heading_wrapper p{
+    text-align: right;
+}
+.hierarchyphases{
+    text-align: right;
+}
+.cv-officier{
+    text-align: right;
+}
+.all-event .jp_contact_form_heading_wrapper h2{
+    text-align: right;
+}
+.show-booking-info .jp_contact_form_heading_wrapper{
+    padding-left: 0;
+    padding-right: 100px;
+    text-align: right;
+}

@@ -85,7 +85,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">{{ trans('message.dashboard') }}</li>
-        <li class="{{'admin/client' == request()->path() ? 'active':'' || 'admin/client/create' == request()->path() ? 'active':'' }} treeview">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.clients') }}</span>
             <span class="pull-right-container">
@@ -93,12 +93,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'admin/client' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/client') }}"><i class="fa fa-circle-o"></i> {{ trans('message.clients') }}</a></li>
+            <li ><a href="{{url ('/admin/client') }}"><i class="fa fa-circle-o"></i> {{ trans('message.clients') }}</a></li>
             <li  ><a href="{{url ('/admin/client/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.client') }}</a></li>
           </ul>
         </li>
 
-        <li class="{{'admin/partner' == request()->path() ? 'active':'' || 'admin/partner/create' == request()->path() ? 'active':'' }} treeview">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.partners') }}</span>
             <span class="pull-right-container">
@@ -106,14 +106,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'admin/partner' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/partner') }}"><i class="fa fa-circle-o"></i> {{ trans('message.partners') }}</a></li>
+            <li class=""><a href="{{url ('/admin/partner') }}"><i class="fa fa-circle-o"></i> {{ trans('message.partners') }}</a></li>
             <li  ><a href="{{url ('/admin/partner/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.partner') }}</a></li>
           </ul>
         </li>
 
 
 
-        <li class="{{'admin/hierarchy' == request()->path() ? 'active':'' || 'admin/hierarchy/create' == request()->path() ? 'active':'' }} treeview">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.hierarchies') }}</span>
             <span class="pull-right-container">
@@ -121,11 +121,11 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/hierarchy' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/hierarchy') }}"><i class="fa fa-circle-o"></i> {{ trans('message.hierarchies') }}</a></li>
-            <li class="{{'/admin/hierarchy/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/hierarchy/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.hierarchy') }}</a></li>
+            <li class=""><a href="{{url ('/admin/hierarchy') }}"><i class="fa fa-circle-o"></i> {{ trans('message.hierarchies') }}</a></li>
+            <li class=""><a href="{{url ('/admin/hierarchy/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.hierarchy') }}</a></li>
           </ul>
         </li>
-        <li class="{{'admin/work' == request()->path() ? 'active':'' || 'admin/work/create' == request()->path() ? 'active':'' }} treeview">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.works') }}</span>
             <span class="pull-right-container">
@@ -133,11 +133,11 @@
             </span>
           </a>
           <ul class=" treeview-menu">
-            <li class="{{'/admin/work' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/work') }}"><i class="fa fa-circle-o"></i> {{ trans('message.works') }}</a></li>
-            <li class="{{'/admin/work/create' == request()->path() ? 'active':''}}" ><a href="{{url ('/admin/work/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.work') }}</a></li>
+            <li class=""><a href="{{url ('/admin/work') }}"><i class="fa fa-circle-o"></i> {{ trans('message.works') }}</a></li>
+            <li class="" ><a href="{{url ('/admin/work/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.work') }}</a></li>
           </ul>
         </li>
-        <li class="{{'admin/thank' == request()->path() ? 'active':'' || 'admin/thank/create' == request()->path() ? 'active':'' }} treeview">
+        <li class="treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.thanks') }}</span>
             <span class="pull-right-container">
@@ -145,11 +145,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/thank' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/thank') }}"><i class="fa fa-circle-o"></i> {{ trans('message.thanks') }}</a></li>
-            <li class="{{'/admin/thank/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/thank/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.thank') }}</a></li>
+            <li ><a href="{{url ('/admin/thank') }}"><i class="fa fa-circle-o"></i> {{ trans('message.thanks') }}</a></li>
+            <li ><a href="{{url ('/admin/thank/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.thank') }}</a></li>
           </ul>
         </li>
-        <li class="{{'admin/social' == request()->path() ? 'active':'' || 'admin/social/create' == request()->path() ? 'active':'' }} treeview">
+        {{-- {{'/admin/social' == request()->path() ? 'active':'' || 'admin/social/create' == request()->path() ? 'active':'' }} --}}
+        <li class=" treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.social') }}</span>
             <span class="pull-right-container">
@@ -157,11 +158,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/social' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/social') }}"><i class="fa fa-circle-o"></i> {{ trans('message.social') }}</a></li>
-            <li class="{{'/admin/social/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/social/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.social') }}</a></li>
+            {{-- class="{{'/admin/social' == request()->path() ? 'active':''}} --}}
+            {{-- class="{{'/admin/social/create' == request()->path() ? 'active':''}}" --}}
+            <li ><a href="{{url ('/admin/social') }}"><i class="fa fa-circle-o"></i> {{ trans('message.social') }}</a></li>
+            <li ><a href="{{url ('/admin/social/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.social') }}</a></li>
           </ul>
         </li>
-        <li class="{{'admin/setting' == request()->path() ? 'active':'' || 'admin/setting/create' == request()->path() ? 'active':'' }} treeview">
+        <li class=" treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.settings') }}</span>
             <span class="pull-right-container">
@@ -169,12 +172,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/setting' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/setting') }}"><i class="fa fa-circle-o"></i> {{ trans('message.settings') }}</a></li>
-            <li class="{{'/admin/setting/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/setting/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.setting') }}</a></li>
+            <li class=""><a href="{{url ('/admin/setting') }}"><i class="fa fa-circle-o"></i> {{ trans('message.settings') }}</a></li>
+            <li class=""><a href="{{url ('/admin/setting/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.setting') }}</a></li>
           </ul>
         </li>
 
-        <li class="{{'admin/event' == request()->path() ? 'active':'' || 'admin/event/create' == request()->path() ? 'active':'' }} treeview">
+        <li class=" treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.events') }}</span>
             <span class="pull-right-container">
@@ -182,12 +185,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/event' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/event') }}"><i class="fa fa-circle-o"></i> {{ trans('message.events') }}</a></li>
-            <li class="{{'/admin/event/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/event/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.event') }}</a></li>
+            <li ><a href="{{url ('/admin/event') }}"><i class="fa fa-circle-o"></i> {{ trans('message.events') }}</a></li>
+            <li ><a href="{{url ('/admin/event/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.event') }}</a></li>
           </ul>
         </li>
 
-        <li class="{{'admin/contact' == request()->path() ? 'active':'' || 'admin/contact/create' == request()->path() ? 'active':'' }} treeview">
+        <li class=" treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.contact') }}</span>
             <span class="pull-right-container">
@@ -195,12 +198,12 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/contact' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/contact') }}"><i class="fa fa-circle-o"></i> {{ trans('message.contact') }}</a></li>
-            <li class="{{'/admin/contact/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/contact/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.contact') }}</a></li>
+            <li class=""><a href="{{url ('/admin/contact') }}"><i class="fa fa-circle-o"></i> {{ trans('message.contact') }}</a></li>
+            <li class=""><a href="{{url ('/admin/contact/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.contact') }}</a></li>
           </ul>
         </li>
 
-        <li class="{{'admin/job' == request()->path() ? 'active':'' || 'admin/job/create' == request()->path() ? 'active':'' }} treeview">
+        <li class=" treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.jobs') }}</span>
             <span class="pull-right-container">
@@ -208,13 +211,13 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/job' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/job') }}"><i class="fa fa-circle-o"></i>{{ trans('message.jobs') }}</a></li>
-            <li class="{{'/admin/job/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/job/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.job') }}</a></li>
+             <li class="{{'/admin/job' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/job') }}"><i class="fa fa-circle-o"></i>{{ trans('message.jobs') }}</a></li> 
+             <li class="{{'/admin/job/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/job/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.job') }}</a></li> 
           </ul>
         </li>
 
 
-        <li class="{{'admin/service' == request()->path() ? 'active':'' || 'admin/service/create' == request()->path() ? 'active':'' }} treeview">
+        <li class=" treeview">
           <a href="">
             <i class="fa fa-dashboard"></i> <span>{{ trans('message.services') }}</span>
             <span class="pull-right-container">
@@ -222,10 +225,119 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="{{'/admin/service' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/service') }}"><i class="fa fa-circle-o"></i> {{ trans('message.services') }}</a></li>
-            <li class="{{'/admin/service/create' == request()->path() ? 'active':''}}"><a href="{{url ('/admin/service/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.service') }}</a></li>
+            <li class=""><a href="{{url ('/admin/service') }}"><i class="fa fa-circle-o"></i> {{ trans('message.services') }}</a></li>
+            <li class=""><a href="{{url ('/admin/service/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.service') }}</a></li>
           </ul>
         </li>
+
+        <li class=" treeview">
+          <a href="{{url ('/admin/message') }}">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.message') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/message') }}"><i class="fa fa-circle-o"></i> {{ trans('message.messages') }}</a></li>
+            
+          </ul>
+        </li>
+
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.locations') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/location') }}"><i class="fa fa-circle-o"></i> {{ trans('message.locations') }}</a></li>
+            <li class=""><a href="{{url ('/admin/location/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.location') }}</a></li>
+          </ul>
+        </li>
+
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.experiences') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/experience') }}"><i class="fa fa-circle-o"></i> {{ trans('message.experiences') }}</a></li>
+            <li class=""><a href="{{url ('/admin/experience/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.experience') }}</a></li>
+          </ul>
+        </li>
+
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.titles') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/title') }}"><i class="fa fa-circle-o"></i> {{ trans('message.titles') }}</a></li>
+            <li class=""><a href="{{url ('/admin/title/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.title') }}</a></li>
+          </ul>
+        </li>
+
+
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.departments') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/department') }}"><i class="fa fa-circle-o"></i> {{ trans('message.departments') }}</a></li>
+            <li class=""><a href="{{url ('/admin/department/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.department') }}</a></li>
+          </ul>
+        </li>
+
+
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.hierarchyDetails') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/hierarchyDetail') }}"><i class="fa fa-circle-o"></i> {{ trans('message.hierarchyDetail') }}</a></li>
+            <li class=""><a href="{{url ('/admin/hierarchyDetail/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.hierarchyDetail') }}</a></li>
+          </ul>
+        </li>
+       
+
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.officers') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/officer') }}"><i class="fa fa-circle-o"></i> {{ trans('message.officer') }}</a></li>
+          
+          </ul>
+        </li>
+
+        
+        <li class=" treeview">
+          <a href="">
+            <i class="fa fa-dashboard"></i> <span>{{ trans('message.skills') }}</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class=""><a href="{{url ('/admin/skill') }}"><i class="fa fa-circle-o"></i> {{ trans('message.skill') }}</a></li>
+            <li class=""><a href="{{url ('/admin/skill/create') }}"><i class="fa fa-circle-o"></i> {{ trans('message.add') }} {{ trans('message.skill') }}</a></li>
+          </ul>
+        </li>
+
 
 
       </ul>

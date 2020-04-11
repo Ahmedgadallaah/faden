@@ -30,10 +30,10 @@
         </div>
     </div>
 
-
+    <div class="card-body" id="arabic-form">
     <div class="box box-info">
         <div class="box-header">
-              <h3 class="box-title">{{ trans('message.vision') }} (Ar)</h3>
+              <h3 class="box-title">{{ trans('message.Who We Are') }} (EN)</h3>
               <!-- tools box -->
             <div class="pull-right box-tools">
                 <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
@@ -49,13 +49,18 @@
             <div class="box-body pad">
               
                     <textarea   class="form-control {{ $errors->has('en_vision') ? 'is-invalid' : '' }}" id="editor1" name="en_vision" rows="6" cols="80" value="{{ old('en_vision', '') }}" required>{{ $setting->translate('ar')->vision  }}</textarea>    
-            </div>
+                    @if($errors->has('en_vision'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('en_vision') }}
+                    </div>
+                @endif
+                </div>
           </div>
-    
-
+    </div>
+    <div class="card-body" id="arabic-form">
     <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">{{ trans('message.vision') }} (AR) </h3>
+              <h3 class="box-title">{{ trans('message.Who We Are') }} (AR) </h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
                 <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
@@ -71,47 +76,43 @@
             <div class="box-body pad">
               
                     <textarea   class="form-control {{ $errors->has('ar_vision') ? 'is-invalid' : '' }}" id="editor1" name="ar_vision" rows="6" cols="80" value="{{ old('ar_name', '') }}" required>{{$setting->translate('ar')->vision }}</textarea>
-              
+                    @if($errors->has('ar_vision'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('ar_vision') }}
+                    </div>
+                @endif
             </div>
     </div>
 
+    </div>
+    <div class="card-body" id="arabic-form">
+<img src="{{asset('./../storage/app/setting/'.$setting->logo)}}" style="width:80px;height:80px;">
+    </div>
 
-
-    <div class="form-group">
+    <div class="card-body" id="arabic-form">
+<div class="form-group">
         <label class="required" for="ar_name">{{ trans('message.logo') }}</label>
-    <img src="{{asset('./../storage/app/setting/'.$setting->logo)}}">
-    <input  type="file" class="form-control"  value="{{ $setting->logo }}"  name="logo"  required>
-    </div>
-
-    <div class="form-group">
-
-        <label class="required" for="logo">{{ trans('message.logo') }} 2030</label>
-        <img src="{{asset('./../storage/app/setting/'.$setting->logo_2030)}}">
-        <input  type="file" class="form-control" value="{{ $setting->logo_2030 }}"  name="logo_2030"  required>
-    </div>
     
-    <div class="form-group">
-        <label class="required" for="logo">{{ trans('message.arflag') }}</label>
-        <img src="{{asset('./../storage/app/setting/'.$setting->Ar_flag)}}">
-    <input  type="file" class="form-control" value="{{ $setting->Ar_flag }}"  name="Ar_flag"  required>
+    <input  type="file" class="form-control {{ $errors->has('logo') ? 'is-invalid' : '' }}"  value="{{ $setting->logo }}" accept="image/*"  name="logo"  >
+    @if($errors->has('logo'))
+    <div class="invalid-feedback">
+        {{ $errors->first('logo') }}
+    </div>
+@endif
+    </div>
     </div>
 
-    <div class="form-group">
+    <button type="submit" class="btn btn-primary">submit</button> 
 
-        <label class="required" for="logo">{{ trans('message.enflag') }}</label>
-        <img src="{{asset('./../storage/app/setting/'.$setting->En_flag)}}">
-        <input  type="file" class="form-control"  value="{{ $setting->En_flag }}" name="En_flag"  required>
-    </div>
-
-    <div class="form-group">
-        <label class="required" for="logo">{{ trans('message.backImage') }}</label>
-        <img src="{{asset('./../storage/app/setting/'.$setting->back_img)}}">
-        <input  type="file" class="form-control" value="{{ $setting->back_img }}"  name="back_img"  required>
-    </div>
+    <input  type="file" hidden class="form-control" value="{{ $setting->logo_2030 }}" accept="image/*"  name="logo_2030" >
+    <input  type="file" hidden class="form-control" value="{{ $setting->Ar_flag }}" accept="image/*" name="Ar_flag"  >
+    <input hidden type="file" class="form-control"  value="{{ $setting->En_flag }}" accept="image/*" name="En_flag"  >
+    <input hidden type="file" class="form-control" value="{{ $setting->back_img }}" accept="image/*"  name="back_img"  >
 
 
 
-<button type="submit" class="btn btn-primary">submit</button> 
+
+
 </div>
 </form>
 @endsection

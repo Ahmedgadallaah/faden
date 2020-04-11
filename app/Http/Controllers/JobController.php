@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Job;
+use App\Location;
+use App\Experience;
+use App\Client;
+use App\Title;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Redirect;
 use Session;
@@ -11,37 +15,41 @@ class JobController extends Controller
 {
     public function index()
     {
-        $jobs = Job::paginate(10);
-
+        $jobs = Job::with('location')->with('experience')->with('client')->with('title')->paginate(10);
+        
         return view('admin.jobs.index',compact('jobs'));
     }
     public function create()
     {
-        return view('admin.jobs.create');
+        $clients = Client::all();
+        $locations = Location::all();
+        $experiences = Experience::all();
+        $titles = Title::all();
+        return view('admin.jobs.create',compact('clients','locations','experiences','titles'));
     }
     public function store(Request $request)
     {
         $this->validate($request, [
 
             'author' => ['required', 'string', 'max:50'],
-            'ar_title' => ['required', 'string', 'max:50'],
-            'en_title' => ['required', 'string', 'max:50'],
             'ar_description' => ['required', 'string', 'max:255'],
             'en_description' => ['required', 'string', 'max:255'],
             'ar_requirment' => ['required', 'string', 'max:255'],
             'en_requirment' => ['required', 'string', 'max:255'],
-            
-            
-        ]);
 
+        ]);
         $job_data = [
-            'en' => ['title'=> $request->input('en_title'),'description'=> $request->input('en_description'),'requirment'=> $request->input('en_requirment')],
-            'ar' => [ 'title' => $request->input('ar_title'),'description'=> $request->input('ar_description'),'requirment'=> $request->input('ar_requirment')],
+            'en' => ['description'=> $request->input('en_description'),'requirment'=> $request->input('en_requirment')],
+            'ar' => [ 'description'=> $request->input('ar_description'),'requirment'=> $request->input('ar_requirment')],
+            'client_id' => $request->client_id,
+            'location_id' => $request->location_id,
+            'experience_id' => $request->experience_id,
+            'title_id' => $request->title_id,
             'author' => $request->input('author'),
             'online' => 1
-        ];
         
-         Job::create($job_data);
+        ]; 
+        $job = Job::create($job_data);  
          Session::put('message', 'Job Created Successfully !!');
          return Redirect::to('admin/job/'); 
     }
@@ -65,7 +73,12 @@ class JobController extends Controller
     public function edit($id)
     {   
             $job = Job::find($id);
-            return view('admin.jobs.edit', compact('job','id'));
+            $clients = Client::all();
+            $locations = Location::all();
+            $experiences = Experience::all();
+            $titles = Title::all();
+            
+            return view('admin.jobs.edit', compact('job','id','clients','locations','experiences','titles'));
     }
 
     /**
@@ -83,19 +96,19 @@ class JobController extends Controller
         $this->validate($request, [
 
             'author' => ['required', 'string', 'max:50'],
-            'ar_title' => ['required', 'string', 'max:50'],
-            'en_title' => ['required', 'string', 'max:50'],
+            
             'ar_description' => ['required', 'string', 'max:255'],
             'en_description' => ['required', 'string', 'max:255'],
             'ar_requirment' => ['required', 'string', 'max:255'],
-            'en_requirment' => ['required', 'string', 'max:255'],
-            
-            
+            'en_requirment' => ['required', 'string', 'max:255'], 
         ]);
-
         $job_data = [
-            'en' => ['name'=> $request->input('en_name'),'description'=> $request->input('en_description'),'requirment'=> $request->input('en_requirment')],
-            'ar' => [ 'name' => $request->input('ar_name'),'description'=> $request->input('ar_description'),'requirment'=> $request->input('ar_requirment')],
+            'en' => ['description'=> $request->input('en_description'),'requirment'=> $request->input('en_requirment')],
+            'ar' => ['description'=> $request->input('ar_description'),'requirment'=> $request->input('ar_requirment')],
+            'client_id' => $request->client_id,
+            'location_id' => $request->location_id,
+            'experience_id' => $request->experience_id,
+            'title_id' => $request->title_id,
             'author' => $request->input('author'),
             'online' => 1
         ];     
@@ -132,4 +145,7 @@ class JobController extends Controller
         Session::put('message', 'job Activated Successfully !!');
         return Redirect::to('/admin/job');
     }
+
+
+
 }

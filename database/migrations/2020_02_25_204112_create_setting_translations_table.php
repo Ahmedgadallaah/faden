@@ -26,7 +26,7 @@ class CreateSettingTranslationsTable extends Migration
             
 
             $table->string('name');
-            $table->string('vision');
+            $table->text('vision');
 
             
         });

@@ -74,15 +74,17 @@
                                 
                         @endguest
                     </ul>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ trans('message.language') }}  </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{{ url('lang/en') }}">En</a>
-                    <a class="dropdown-item" href="{{ url('lang/ar') }}">AR</a>
+                    @if ( Config::get('app.locale') == 'en')
 
-                </div>
-            </div>        
+        
+
+                    <a class="btn btn-default" style="margin-right:5px;margin-left:5px;" href="{{ url('lang/ar') }}">AR</a>
+            @elseif ( Config::get('app.locale') == 'ar' )
+            
+            <a class="btn btn-default"  style="margin-right:5px;margin-left:5px;" href="{{ url('lang/en') }}">الإنجليزية </a>
+            
+            @endif
+            
                 </div>
             </div>
         </nav>

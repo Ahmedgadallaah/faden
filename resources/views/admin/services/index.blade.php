@@ -5,7 +5,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              
+              <p style="color:red"> {{ trans('message.show Album') }} </p>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

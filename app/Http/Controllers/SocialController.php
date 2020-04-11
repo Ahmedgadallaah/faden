@@ -35,30 +35,25 @@ class SocialController extends Controller
         $this->validate($request, [
             
             'link' => ['required', 'max:191'],
-            'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $social_data = [
             
             'link' => $request->input('link'),
+            'icon' => $request->input('icon'),
             'online' => 1
         ];
-        $social_data['icon'] = '';
+        
 
-        $image = $request->file('icon');
-        if ($image) {
-            $request->icon->store('social');
-            $imagename = $request->icon->hashName();
-            $social_data['icon'] =$request->icon->hashName();
-        }
         
         
      
-         // Now just pass this array to regular Eloquent function and Voila!    
+        
          Social::create($social_data);
          Session::put('message', 'Social link created  Successfully !!');
-         // Redirect to the previous page successfully    
-         return Redirect::to('admin/social/create'); 
-        //  return redirect()->route('admin.social.index');
+        
+         return Redirect::to('admin/social/'); 
+        
     }
 
     /**
@@ -100,15 +95,15 @@ class SocialController extends Controller
         $this->validate($request, [
             
             'link' => ['required', 'max:191'],
-            'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'icon' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $social_data = [
             'link' => $request->input('link'),
             'online' => 1
         ];
-        $social_data['icon'] = '';
-        $image = $request->file('icon');
+
+        $image = $request->has('icon');
         if ($image) {
             @unlink(storage_path('app/social/'.$social->image));
             $request->icon->store('social');
@@ -120,7 +115,7 @@ class SocialController extends Controller
      
          
          $social->update($social_data);
-         Session::put('message', 'Social link Deleted  Successfully !!');
+         Session::put('message', 'Data Updated  Successfully !!');
          // Redirect to the previous page successfully    
          return Redirect::to('admin/social/');
     }

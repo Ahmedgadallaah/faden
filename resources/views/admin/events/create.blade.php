@@ -28,16 +28,29 @@
         
      </div>
     </div>
-
+    <div class="card-body" id="arabic-form">
     <div class="form-group">
         <label class="required" for="logo">{{ trans('message.image') }}</label>
-        <input  type="file" class="form-control"  name="image"  required>
+        <input  type="file" class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}"  name="image" accept="image/*"  required>
+        @if($errors->has('image'))
+        <div class="invalid-feedback">
+            {{ $errors->first('image') }}
+        </div>
+    @endif
         
     </div>
-   
+    </div>
+    <div class="card-body" id="arabic-form">
     <div class="form-group">
     <label class="required" for="logo">{{ trans('message.images') }}</label>
-        <input type="file" class="form-control"  name="images[]" id="file" accept="image/*" multiple />
+        <input type="file" class="form-control {{ $errors->has('images') ? 'is-invalid' : '' }}"  name="images[]" id="file" accept="image/*" multiple />
+        @if($errors->has('images'))
+        <div class="invalid-feedback">
+            {{ $errors->first('images') }}
+        </div>
+    @endif
+        
+    </div>
     </div>
 
         

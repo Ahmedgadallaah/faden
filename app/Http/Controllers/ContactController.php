@@ -21,15 +21,13 @@ class ContactController extends Controller
         return view('admin.contacts.create');
     }
     public function store(Request $request)
-    {
-
-       
-        $contact_data = [
-            
+    { 
+        $contact_data = [       
             'fax' => $request->input('fax'),
             'mobile' => $request->input('mobile'),
             'email' => $request->input('email'),
-            'map' => $request->input('map'),
+            'map_KSA' => $request->input('map_KSA'),
+            'map_EG' => $request->input('map_EG'),
             'online' => 1
         ];
         
@@ -60,7 +58,8 @@ class ContactController extends Controller
             'fax' => $request->input('fax'),
             'mobile' => $request->input('mobile'),
             'email' => $request->input('email'),
-            'map' => $request->input('map'),
+            'map_KSA' => $request->input('map_KSA'),
+            'map_EG' => $request->input('map_EG'),
             'online' => 1
         ];     
 

@@ -18,7 +18,8 @@ class CreateContactsTable extends Migration
             $table->string('fax')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email')->nullable();
-            $table->string('map');
+            $table->string('map_KSA');
+            $table->string('map_EG');
             $table->boolean('online')->default(0);
             $table->timestamps();
         });

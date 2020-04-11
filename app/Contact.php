@@ -8,6 +8,6 @@ class Contact extends Model
 {
     protected $fillable = [
 
-		'fax','mobile','email','map','online'
+		'fax','mobile','email','map_KSA','map_EG','online'
 	];
 }

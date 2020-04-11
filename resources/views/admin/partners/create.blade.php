@@ -14,6 +14,7 @@
         @endif
         
     </div>
+</div>
 
     <div class="card-body" id="arabic-form">
     <div class="form-group">
@@ -26,18 +27,31 @@
         @endif
         
     </div>
-
+    </div>
+    <div class="card-body" id="arabic-form">
     <div class="form-group">
         <label class="required" for="logo">{{ trans('message.logo') }}</label>
-    <input  type="file" class="form-control"  name="logo"  required>
+    <input  type="file" class="form-control {{ $errors->has('logo') ? 'is-invalid' : '' }}"  name="logo" accept="image/*" required>
+    @if($errors->has('logo'))
+    <div class="invalid-feedback">
+        {{ $errors->first('logo') }}
     </div>
+@endif
+    </div>
+    </div>
+    <div class="card-body" id="arabic-form">
     <div class="form-group">
         <label class="required" for="link">{{ trans('message.link') }} </label>
-    <input  type="text" class="form-control"  name="link" required>
+    <input  type="text" class="form-control {{ $errors->has('link') ? 'is-invalid' : '' }}"  name="link" required>
+    @if($errors->has('link'))
+    <div class="invalid-feedback">
+        {{ $errors->first('link') }}
     </div>
-    
+@endif
+    </div>
+    </div>
 
 <button type="submit" class="btn btn-primary">submit</button> 
-</div>
+
 </form>
 @endsection

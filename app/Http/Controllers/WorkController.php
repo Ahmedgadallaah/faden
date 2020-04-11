@@ -34,7 +34,7 @@ class WorkController extends Controller
         $this->validate($request, [
             'en_name' => ['required', 'string', 'max:50'],
             'ar_name' => ['required', 'string', 'max:50'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            //'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $work_data = [
             'en' => [
@@ -45,7 +45,7 @@ class WorkController extends Controller
             
             'online' => 1
         ];
-        $work_data['image'] = '';
+        // $work_data['image'] = '';
         $image = $request->file('image');
         if ($image) {
             $request->image->store('work');
@@ -97,22 +97,22 @@ class WorkController extends Controller
         $this->validate($request, [
             'en_name' => ['required', 'string', 'max:50'],
             'ar_name' => ['required', 'string', 'max:50'],
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $work_data = [
             'en' => ['name'=> $request->input('en_name'),],
             'ar' => [ 'name' => $request->input('ar_name')],
             'online' => 1
         ];
-        $work_data['image'] = '';
-        $image=$request->file('image');
+        
+        $image=$request->has('image');
         if ($image) {
             @unlink(storage_path('app/work/'.$work->image));
             $request->image->store('work');
-            $imagename = $request->image->hashName();
+           // $imagename = $request->image->hashName();
             $work_data['image'] =$request->image->hashName();
         }
-        //dd($work_data);
+       // dd($work_data);
         $work->update($work_data);
         Session::put('message', 'Work Updated  Successfully !!');
         return Redirect::to('admin/work');

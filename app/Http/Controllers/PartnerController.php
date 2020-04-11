@@ -24,7 +24,7 @@ class PartnerController extends Controller
             'ar_name' => ['required', 'string', 'max:50'],
             'en_name' => ['required', 'string', 'max:50'],
             'link' => ['required', 'max:191'],
-            'logo' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+         //   'logo' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         
 
@@ -34,7 +34,7 @@ class PartnerController extends Controller
             'link' => $request->input('link'),
             'online' => 1
         ];
-        $partner_data['logo'] = '';
+        
         $image = $request->file('logo');
         if ($image) {
             $request->logo->store('partner');
@@ -84,7 +84,7 @@ class PartnerController extends Controller
             'ar_name' => ['required', 'string', 'max:50'],
             'en_name' => ['required', 'string', 'max:50'],
             'link' => ['required', 'max:191'],
-            'logo' =>  'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           // 'logo' =>  'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $partner_data = [
@@ -93,12 +93,11 @@ class PartnerController extends Controller
                     'link' => $request->input('link'),
                     'online' => 1
                 ];
-                $image = $request->file('logo');
-                //dd($image);
-                if ($image) {
+                
+            
+                if ($request->has('logo')) {
                     @unlink(storage_path('app/partner/'.$partner->logo));
                     $request->logo->store('partner');
-                    $imagename = $request->logo->hashName();
                     $partner_data['logo'] =$request->logo->hashName();   
                 }
         $partner->update($partner_data);

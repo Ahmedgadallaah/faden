@@ -27,20 +27,34 @@
         @endif
         
     </div>
+    </div>
 
+<div class="card-body" id="arabic-form">
+<img src="{{asset('./../storage/app/partner/'.$partner->logo)}}" style="height:80px;width:80px;">
+</div>
+
+<div class="card-body" id="arabic-form">
     <div class="form-group">
-    
-        <label class="required" for="ar_name">{{ trans('message.logo') }}</label>
-   <img src="{{asset('./../storage/app/partner/'.$partner->logo)}}">
-    <input  type="file" class="form-control"   name="logo"  required>
+    <label class="required" for="ar_name">{{ trans('message.logo') }}</label>
+    <input  type="file" class="form-control {{ $errors->has('logo') ? 'is-invalid' : '' }}"   name="logo" accept="image/*"  >
+    @if($errors->has('logo'))
+    <div class="invalid-feedback">
+        {{ $errors->first('logo') }}
+    </div>
+@endif
     </div>
     <div class="form-group">
         <label class="required" for="ar_name">{{ trans('message.link') }} </label>
-    <input  type="text" class="form-control" value="{{ $partner->link }}"  name="link" required>
+    <input  type="text" class="form-control {{ $errors->has('link') ? 'is-invalid' : '' }}" value="{{ $partner->link }}"  name="link" required>
+    @if($errors->has('link'))
+    <div class="invalid-feedback">
+        {{ $errors->first('link') }}
     </div>
-    
+@endif
+    </div>
+</div>   
 
 <button type="submit" class="btn btn-primary">submit</button> 
-</div>
+
 </form>
 @endsection

@@ -32,15 +32,12 @@ class SettingController extends Controller
     {
 
         $this->validate($request, [
-            'en_name' => ['required', 'string', 'max:50'],
-            'ar_name' => ['required', 'string', 'max:50'],
-            'en_vision' => ['required', 'string', 'max:191'],
-            'ar_vision' => ['required', 'string', 'max:191'],
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'logo_2030' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'Ar_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'En_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'back_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+            // 'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'logo_2030' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'Ar_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'En_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'back_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $setting_data = [
             'en' => [
@@ -51,11 +48,11 @@ class SettingController extends Controller
                  'name' => $request->input('ar_name'),
                  'vision'=> $request->input('ar_vision')],    
                     ];
-        $logo = $request->file('logo');
-        $logo_2030 = $request->file('logo_2030');
-        $Ar_flag = $request->file('Ar_flag');
-        $En_flag = $request->file('En_flag');
-        $back_image = $request->file('back_img');
+        $logo = $request->has('logo');
+        $logo_2030 = $request->has('logo_2030');
+        $Ar_flag = $request->has('Ar_flag');
+        $En_flag = $request->has('En_flag');
+        $back_image = $request->has('back_img');
 
 
         if ($logo) {
@@ -133,15 +130,15 @@ class SettingController extends Controller
          $setting = Setting::findOrFail($id);
 
          $this->validate($request, [
-            'en_name' => ['required', 'string', 'max:50'],
-            'ar_name' => ['required', 'string', 'max:50'],
-            'en_vision' => ['required', 'string', 'max:191'],
-            'ar_vision' => ['required', 'string', 'max:191'],
-            'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'logo_2030' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'Ar_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'En_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'back_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'en_name' => ['required', 'string', 'max:225'],
+            'ar_name' => ['required', 'string', 'max:255'],
+            'en_vision' => ['required', 'string', 'max:255'],
+            'ar_vision' => ['required', 'string', 'max:255'],
+            // // 'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'logo_2030' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'Ar_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'En_flag' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'back_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
          $setting_data = [
@@ -153,11 +150,11 @@ class SettingController extends Controller
                  'name' => $request->input('ar_name'),
                  'vision'=> $request->input('ar_vision')],    
                     ];
-        $logo = $request->file('logo');
-        $logo_2030 = $request->file('logo_2030');
-        $Ar_flag = $request->file('Ar_flag');
-        $En_flag = $request->file('En_flag');
-        $back_image = $request->file('back_img');
+        $logo = $request->has('logo');
+        $logo_2030 = $request->has('logo_2030');
+        $Ar_flag = $request->has('Ar_flag');
+        $En_flag = $request->has('En_flag');
+        $back_image = $request->has('back_img');
 
 
         if ($logo) {
